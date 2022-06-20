@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Masive.Domain.Interfaces;
 using MasiveApi.Api.Data;
+using MasiveApp.Application.Interfaces_App;
 using MasiveApp.Application.Request.Detalle;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,42 +16,37 @@ namespace MasiveApi.Api.Controllers
     [ApiController]
     public class DetalleController : ControllerBase
     {
-        private readonly IDetalleRepository _repository;
-        private readonly IMapper _mapper;
+        private readonly IDetalleService _service;
 
-
-        public DetalleController(IDetalleRepository repository, IMapper mapper)
+        public DetalleController(IDetalleService service)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _service = service;
         }
 
         [HttpGet]
+
         public IActionResult Get()
         {
-            return Ok(_repository.GetDetalle());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get([FromRoute] GetDetalleRequest request)
-        {
-            return Ok(_repository.GetDetalleById(request.Id));
+            return Ok(_service.GetDetalle());
         }
 
         [HttpPost]
         public IActionResult Post(CreateDetalleRequest request)
         {
-            var detalle = _mapper.Map<Detalles>(request);
-            _repository.InsertDetalle(detalle);
+            _service.InsertDetalle(request);
             return Ok();
         }
 
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute] GetDetalleRequest request)
+        {
+            return Ok(_service.GetDetalleById(request.Id));
+        }
 
         [HttpPut]
         public ActionResult Put(UpdateDetalleRequest request)
         {
-            var detalle = _mapper.Map<Detalles>(request);
-            _repository.UpdateDetalle(detalle);
+            _service.UpdateDetalle(request);
             return Ok();
         }
 
@@ -58,7 +54,8 @@ namespace MasiveApi.Api.Controllers
 
         public IActionResult Delete([FromRoute] DeleteDetalleRequest request)
         {
-            _repository.DeleteDetalle(request.Id);
+
+            _service.DeleteDetalle(request.Id);
             return Ok();
         }
     }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Santiago\\source\\repos\\MasiveClub\\Masive.Domain\\Masive.Domain.csproj": {}
+    "C:\\Users\\juanm\\source\\repos\\MasiveClub5.0\\Masive.Domain\\Masive.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Santiago\\source\\repos\\MasiveClub\\Masive.Domain\\Masive.Domain.csproj": {
+    "C:\\Users\\juanm\\source\\repos\\MasiveClub5.0\\Masive.Domain\\Masive.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Santiago\\source\\repos\\MasiveClub\\Masive.Domain\\Masive.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\juanm\\source\\repos\\MasiveClub5.0\\Masive.Domain\\Masive.Domain.csproj",
         "projectName": "Masive.Domain",
-        "projectPath": "C:\\Users\\Santiago\\source\\repos\\MasiveClub\\Masive.Domain\\Masive.Domain.csproj",
-        "packagesPath": "C:\\Users\\Santiago\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Santiago\\source\\repos\\MasiveClub\\Masive.Domain\\obj\\",
+        "projectPath": "C:\\Users\\juanm\\source\\repos\\MasiveClub5.0\\Masive.Domain\\Masive.Domain.csproj",
+        "packagesPath": "C:\\Users\\juanm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juanm\\source\\repos\\MasiveClub5.0\\Masive.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Santiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\juanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

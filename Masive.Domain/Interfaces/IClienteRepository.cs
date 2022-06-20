@@ -16,5 +16,6 @@ namespace Masive.Domain.Interfaces
         void UpdateCliente(Cliente cliente);
 
         void DeleteCliente(int idCliente);
+        
     }
 }

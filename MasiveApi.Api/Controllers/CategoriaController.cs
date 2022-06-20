@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Masive.Domain.Interfaces;
 using MasiveApi.Api.Data;
+using MasiveApp.Application.Interfaces_App;
 using MasiveApp.Application.Request.Categoria;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,41 +16,37 @@ namespace MasiveApi.Api.Controllers
     [ApiController]
     public class CategoriaController : ControllerBase
     {
-        private readonly ICategoriaRepository _repository;
-        private readonly IMapper _mapper;
-
-
-        public CategoriaController(ICategoriaRepository repository, IMapper mapper)
+        private readonly ICategoriaService _service;
+        
+        public CategoriaController(ICategoriaService service)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _service = service;
         }
 
         [HttpGet]
+
         public IActionResult Get()
         {
-            return Ok(_repository.GetCategoria());
+            return Ok(_service.GetCategoria());
         }
 
         [HttpPost]
         public IActionResult Post(CreateCategoriaRequest request)
         {
-            var categoria = _mapper.Map<Categoria>(request);
-            _repository.InsertCategoria(categoria);
+            _service.InsertCategoria(request);
             return Ok();
         }
 
         [HttpGet("{id}")]
         public IActionResult Get([FromRoute] GetCategoriaRequest request)
         {
-            return Ok(_repository.GetCategoriaById(request.Id));
+            return Ok(_service.GetCategoriaById(request.Id));
         }
 
         [HttpPut]
         public ActionResult Put(UpdateCategoriaRequest request)
         {
-            var categoria = _mapper.Map<Categoria>(request);
-            _repository.UpdateCategoria(categoria);
+            _service.UpdateCategoria(request);
             return Ok();
         }
 
@@ -57,7 +54,8 @@ namespace MasiveApi.Api.Controllers
 
         public IActionResult Delete([FromRoute] DeleteCategoriaRequest request)
         {
-            _repository.DeleteCategoria(request.Id);
+          
+            _service.DeleteCategoria(request.Id);
             return Ok();
         }
     }

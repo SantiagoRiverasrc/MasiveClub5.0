@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Masive.Domain.Interfaces
 {
     public interface IDetalleRepository

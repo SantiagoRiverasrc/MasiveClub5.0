@@ -8,3 +8,13 @@ C:\Users\Santiago\source\repos\MasiveClub\Masive.Domain\obj\Debug\netcoreapp3.1\
 C:\Users\Santiago\source\repos\MasiveClub\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Santiago\source\repos\MasiveClub\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.dll
 C:\Users\Santiago\source\repos\MasiveClub\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.pdb
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\bin\Debug\netcoreapp3.1\Masive.Domain.deps.json
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\bin\Debug\netcoreapp3.1\Masive.Domain.dll
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\bin\Debug\netcoreapp3.1\Masive.Domain.pdb
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.csproj.AssemblyReference.cache
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.AssemblyInfoInputs.cache
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.AssemblyInfo.cs
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.csproj.CoreCompileInputs.cache
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.dll
+C:\Users\juanm\source\repos\MasiveClub5.0\Masive.Domain\obj\Debug\netcoreapp3.1\Masive.Domain.pdb

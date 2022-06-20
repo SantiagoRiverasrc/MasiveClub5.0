@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Masive.Domain.Interfaces;
 using MasiveApi.Api.Data;
+using MasiveApp.Application.Interfaces_App;
 using MasiveApp.Application.Request;
 using MasiveApp.Application.Request.Usuario;
 using Microsoft.AspNetCore.Http;
@@ -16,52 +17,47 @@ namespace MasiveApi.Api.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        private readonly IUsuarioRepository _repository;
-        private readonly IMapper _mapper;
+        private readonly IUsuarioService _service;
 
-
-        public UsuarioController(IUsuarioRepository repository, IMapper mapper)
+        public UsuarioController(IUsuarioService service)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _service = service;
         }
 
         [HttpGet]
+
         public IActionResult Get()
         {
-            return Ok(_repository.GetUsuario());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get([FromRoute] GetUsuarioRequest request)
-        {
-            return Ok(_repository.GetUsuarioById(request.Id));
+            return Ok(_service.GetUsuario());
         }
 
         [HttpPost]
         public IActionResult Post(CreateUsuarioRequest request)
         {
-            var usuario = _mapper.Map<Usuario>(request);
-            _repository.InsertUsuario(usuario);
+            _service.InsertUsuario(request);
             return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute] GetUsuarioRequest request)
+        {
+            return Ok(_service.GetUsuarioById(request.Id));
         }
 
         [HttpPut]
         public ActionResult Put(UpdateUsuarioRequest request)
         {
-            var usuario = _mapper.Map<Usuario>(request);
-            _repository.UpdateUsuario(usuario);
+            _service.UpdateUsuario(request);
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        
+
         public IActionResult Delete([FromRoute] DeleteUsuarioRequest request)
         {
-            _repository.DeleteUsuario(request.Id);
+
+            _service.DeleteUsuario(request.Id);
             return Ok();
         }
-
-
     }
 }

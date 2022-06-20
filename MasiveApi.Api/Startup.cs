@@ -3,6 +3,8 @@ using Masive.Domain.Interfaces;
 using Masive.Infrastructure.Repositories;
 using MasiveApi.Api.Data;
 using MasiveApp.Application;
+using MasiveApp.Application.Interfaces_App;
+using MasiveApp.Application.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,20 +44,21 @@ namespace MasiveApi.Api
             //Enlace de base de datos
             services.AddDbContext<MusicaContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("Musica")));
 
-            //Se registran las dependencias
+            //Se registran las dependencias de los Repositorios 
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-
             services.AddTransient<IFacturaRepository, FacturaRepository>();
-
             services.AddTransient<IClienteRepository, ClienteRepository>();
-
             services.AddTransient<IProductoRepository, ProductoRepository>();
-
             services.AddTransient<IDetalleRepository, DetalleRepository>();
 
-
+            //Se registran las dependencias de los servicios
+            services.AddTransient<ICategoriaService, CategoriaService>();
+            services.AddTransient <IUsuarioService, UsuarioService>();
+            services.AddTransient<IFacturaService, FacturaService>();
+            services.AddTransient<IClienteService, ClienteService>();
+            services.AddTransient<IProductoService, ProductoService>();
+            services.AddTransient<IDetalleService, DetalleService>();
 
 
 

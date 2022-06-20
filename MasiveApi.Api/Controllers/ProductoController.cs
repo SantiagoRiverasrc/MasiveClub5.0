@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Masive.Domain.Interfaces;
 using MasiveApi.Api.Data;
+using MasiveApp.Application.Interfaces_App;
 using MasiveApp.Application.Request.Producto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,52 +14,50 @@ namespace MasiveApi.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductoController : ControllerBase
+    public class ProductoController : ControllerBase 
     {
-        private readonly IProductoRepository _repository;
-        private readonly IMapper _mapper;
+            private readonly IProductoService _service;
 
+            public ProductoController (IProductoService service)
+            {
+                _service = service;
+            }
 
-        public ProductoController(IProductoRepository repository, IMapper mapper)
-        {
-            _repository = repository;
-            _mapper = mapper;
-        }
+            [HttpGet]
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok(_repository.GetProducto());
-        }
+            public IActionResult Get()
+            {
+                return Ok(_service.GetProducto());
+            }
 
-        [HttpGet("{id}")]
-        public IActionResult Get([FromRoute] GetProductoRequest request)
-        {
-            return Ok(_repository.GetProductoById(request.Id));
-        }
+            [HttpPost]
+            public IActionResult Post(CreateProductoRequest request)
+            {
+                _service.InsertProducto(request);
+                return Ok();
+            }
 
-        [HttpPost]
-        public IActionResult Post(CreateProductoRequest request)
-        {
-            var producto = _mapper.Map<Productos>(request);
-            _repository.InsertProducto(producto);
-            return Ok();
-        }
+            [HttpGet("{id}")]
+            public IActionResult Get([FromRoute] GetProductoRequest request)
+            {
+                return Ok(_service.GetProductoById(request.Id));
+            }
 
-        [HttpPut]
-        public ActionResult Put(UpdateProductoRequest request)
-        {
-            var producto = _mapper.Map<Productos>(request);
-            _repository.UpdateProducto(producto);
-            return Ok();
-        }
+            [HttpPut]
+            public ActionResult Put(UpdateProductoRequest request)
+            {
+                _service.UpdateProducto(request);
+                return Ok();
+            }
 
-        [HttpDelete("{id}")]
+            [HttpDelete("{id}")]
 
-        public IActionResult Delete([FromRoute] DeleteProductoRequest request)
-        {
-            _repository.DeleteProducto(request.Id);
-            return Ok();
-        }
+            public IActionResult Delete([FromRoute] DeleteProductoRequest request)
+            {
+
+                _service.DeleteProducto(request.Id);
+                return Ok();
+            }
     }
 }
+   

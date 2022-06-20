@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Masive.Domain.Interfaces;
 using MasiveApi.Api.Data;
+using MasiveApp.Application.Interfaces_App;
 using MasiveApp.Application.Request.Cliente;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,41 +16,37 @@ namespace MasiveApi.Api.Controllers
     [ApiController]
     public class ClienteController : ControllerBase
     {
-        private readonly IClienteRepository _repository;
-        private readonly IMapper _mapper;
+        private readonly IClienteService _service;
 
-
-        public ClienteController(IClienteRepository repository, IMapper mapper)
+        public ClienteController(IClienteService service)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _service = service;
         }
 
         [HttpGet]
+
         public IActionResult Get()
         {
-            return Ok(_repository.GetCliente());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get([FromRoute] GetClienteRequest request)
-        {
-            return Ok(_repository.GetClienteById(request.Id));
+            return Ok(_service.GetCliente());
         }
 
         [HttpPost]
         public IActionResult Post(CreateClienteRequest request)
         {
-            var cliente = _mapper.Map<Cliente>(request);
-            _repository.InsertCliente(cliente);
+            _service.InsertCliente(request);
             return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute] GetClienteRequest request)
+        {
+            return Ok(_service.GetClienteById(request.Id));
         }
 
         [HttpPut]
         public ActionResult Put(UpdateClienteRequest request)
         {
-            var cliente = _mapper.Map<Cliente>(request);
-            _repository.UpdateCliente(cliente);
+            _service.UpdateCliente(request);
             return Ok();
         }
 
@@ -57,7 +54,8 @@ namespace MasiveApi.Api.Controllers
 
         public IActionResult Delete([FromRoute] DeleteClienteRequest request)
         {
-            _repository.DeleteCliente(request.Id);
+
+            _service.DeleteCliente(request.Id);
             return Ok();
         }
     }

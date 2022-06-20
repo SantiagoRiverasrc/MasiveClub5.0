@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Masive.Domain.Interfaces;
 using MasiveApi.Api.Data;
+using MasiveApp.Application.Interfaces_App;
 using MasiveApp.Application.Request.Factura;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,41 +16,37 @@ namespace MasiveApi.Api.Controllers
     [ApiController]
     public class FacturaController : ControllerBase
     {
-        private readonly IFacturaRepository _repository;
-        private readonly IMapper _mapper;
+        private readonly IFacturaService _service;
 
-
-        public FacturaController(IFacturaRepository repository, IMapper mapper)
+        public FacturaController(IFacturaService service)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _service = service;
         }
 
         [HttpGet]
+
         public IActionResult Get()
         {
-            return Ok(_repository.GetFactura());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get([FromRoute] GetFacturaRequest request)
-        {
-            return Ok(_repository.GetFacturaById(request.Id));
+            return Ok(_service.GetFactura());
         }
 
         [HttpPost]
         public IActionResult Post(CreateFacturaRequest request)
         {
-            var factura = _mapper.Map<Factura>(request);
-            _repository.InsertFactura(factura);
+            _service.InsertFactura(request);
             return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get([FromRoute] GetFacturaRequest request)
+        {
+            return Ok(_service.GetFacturaById(request.Id));
         }
 
         [HttpPut]
         public ActionResult Put(UpdateFacturaRequest request)
         {
-            var factura = _mapper.Map<Factura>(request);
-            _repository.UpdateFactura(factura);
+            _service.UpdateFactura(request);
             return Ok();
         }
 
@@ -57,8 +54,10 @@ namespace MasiveApi.Api.Controllers
 
         public IActionResult Delete([FromRoute] DeleteFacturaRequest request)
         {
-            _repository.DeleteFactura(request.Id);
+
+            _service.DeleteFactura(request.Id);
             return Ok();
         }
     }
 }
+
