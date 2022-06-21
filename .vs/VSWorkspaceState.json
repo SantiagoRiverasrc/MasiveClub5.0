@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MasiveApi.Api",
+    "\\MasiveApi.Api\\Controllers"
   ],
   "SelectedNode": "\\MasiveClub.sln",
   "PreviewInSolutionExplorer": false

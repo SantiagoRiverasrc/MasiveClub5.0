@@ -1,5 +1,6 @@
 using FluentValidation.AspNetCore;
 using Masive.Domain.Interfaces;
+using Masive.Infrastructure.Filter;
 using Masive.Infrastructure.Repositories;
 using MasiveApi.Api.Data;
 using MasiveApp.Application;
@@ -35,7 +36,10 @@ namespace MasiveApi.Api
         {
             //Se agrega el fluen validation y controladores
             services
-                .AddControllers()
+                .AddControllers(Option =>
+                {
+                    Option.Filters.Add<GlobalExceptionFilter>();
+                })
                 .AddFluentValidation(); 
 
             //Se registran las dependencias del proyecto Masive.Application
@@ -60,6 +64,25 @@ namespace MasiveApi.Api
             services.AddTransient<IProductoService, ProductoService>();
             services.AddTransient<IDetalleService, DetalleService>();
 
+            //Se Registran las autenticaciconones de JWT
+            /*services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                //Se definen los parametros de validación del token
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "https://localhost:44369",
+                    ValidAudience = "https://localhost:44369",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("asdfawdfsdfqwerwefcwaefewtwassdas"))
+                };
+            });*/
 
 
         }

@@ -18,3 +18,9 @@ C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\obj\Debug\netcor
 C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\obj\Debug\netcoreapp3.1\MasiveApp.Application.csproj.CoreCompileInputs.cache
 C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\obj\Debug\netcoreapp3.1\MasiveApp.Application.dll
 C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\obj\Debug\netcoreapp3.1\MasiveApp.Application.pdb
+C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\bin\Debug\netcoreapp3.1\MasiveApp.Application.deps.json
+C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\bin\Debug\netcoreapp3.1\MasiveApp.Application.dll
+C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\bin\Debug\netcoreapp3.1\MasiveApp.Application.pdb
+C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\bin\Debug\netcoreapp3.1\Masive.Domain.dll
+C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\bin\Debug\netcoreapp3.1\Masive.Domain.pdb
+C:\Users\juanm\source\repos\MasiveClub5.0\MasiveApp.Application\obj\Debug\netcoreapp3.1\MasiveApp.Application.csproj.CopyComplete

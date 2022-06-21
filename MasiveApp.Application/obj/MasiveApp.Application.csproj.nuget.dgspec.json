@@ -65,7 +65,7 @@
         "projectName": "MasiveApp.Application",
         "projectPath": "C:\\Users\\juanm\\source\\repos\\MasiveClub5.0\\MasiveApp.Application\\MasiveApp.Application.csproj",
         "packagesPath": "C:\\Users\\juanm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juanm\\Source\\Repos\\MasiveClub5.0\\MasiveApp.Application\\obj\\",
+        "outputPath": "C:\\Users\\juanm\\source\\repos\\MasiveClub5.0\\MasiveApp.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\juanm\\AppData\\Roaming\\NuGet\\NuGet.Config",
